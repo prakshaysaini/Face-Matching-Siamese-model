@@ -73,6 +73,7 @@ def generate_all_pairs(img_to_id):
 def evaluate(model, pairs):
     y_true = []
     y_pred = []
+
     for img1, img2, label in tqdm(pairs, desc="Evaluating"):
         emb1 = get_embedding(model, img1)
         emb2 = get_embedding(model, img2)
@@ -80,7 +81,7 @@ def evaluate(model, pairs):
         pred = 1 if dist < THRESHOLD else 0
         y_true.append(label)
         y_pred.append(pred)
-
+        
     acc = accuracy_score(y_true, y_pred)
     prec = precision_score(y_true, y_pred)
     rec = recall_score(y_true, y_pred)
@@ -93,16 +94,13 @@ def evaluate(model, pairs):
     print(f"✅ F1 Score : {f1:.4f}")
 
 def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("test_data_path", help="Path to test data folder")
-    parser.add_argument("--model", default="taskb_siamese_embedding.h5", help="Path to model (default: model/final.h5)")
-    args = parser.parse_args()
-    test_data_path = "r"+ args.test_data_path
+    test_data_path=r"E:\comsys_2025\Comys_Hackathon5\Task_B\train"
+    model_path = r"taskb_siamese_embedding.h5"
     print("📦 Loading model...")
-    model = load_model(args.model)
+    model = load_model(model_path)
 
     print("📂 Loading test images...")
-    img_to_id = build_img_to_id_map(args.test_data_path)
+    img_to_id = build_img_to_id_map(test_data_path)
 
     print("🔁 Generating pairs...")
     pairs = generate_all_pairs(img_to_id)
