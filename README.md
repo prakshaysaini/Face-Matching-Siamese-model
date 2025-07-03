@@ -75,21 +75,19 @@ taskb_siamese_embedding.h5 – Embedding head only (used for computing distances
 layers_weights.txt – All learned layer weights (extracted for inspection)
 
 📦 Requirements
-Install dependencies with:
 
-bash
-Copy
-Edit
-pip install -r requirements.txt
-requirements.txt includes:
-nginx
-Copy
-Edit
-tensorflow
-opencv-python
-numpy
-scikit-learn
-tqdm
+To install all required Python dependencies, run:
+
+    pip install -r requirements.txt
+
+The requirements.txt includes:
+
+- tensorflow          → for model inference
+- opencv-python       → for image loading and preprocessing
+- numpy               → for numerical operations
+- scikit-learn        → for evaluation metrics (accuracy, precision, etc.)
+- tqdm                → for progress bars
+
 🧠 How Threshold Was Found
 Using taskb-get_threshold_with_random_pairs.ipynb:
 
