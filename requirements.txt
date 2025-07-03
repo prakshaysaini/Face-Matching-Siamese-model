@@ -1,5 +1,12 @@
+<<<<<<< HEAD
 tensorflow
 opencv-python
 numpy
 scikit-learn
+=======
+tensorflow==2.13.0
+opencv-python
+numpy
+scikit-learn
+>>>>>>> 96aed0df1c3f0b936fff7501e2b4f3e80195ca61
 tqdm

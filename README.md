@@ -1,4 +1,4 @@
-#  Face Verification with Distorted Images
+#  Face Matching (Multi-Class Recognition with Distorted Inputs)
 
 This repository contains code and pretrained models for **Task B** of **ComSys Hackathon 5** — verifying identity from distorted face images using a **Siamese embedding model**.
 
@@ -7,6 +7,7 @@ This repository contains code and pretrained models for **Task B** of **ComSys H
 ## 📁 Project Structure ``` 
 - ├── distances_output.xlsx # Distances and results from threshold evaluation
 - ├── layers_weights.txt # Extracted layer weights from model (text format)
+- ├── requirements.txt # All the required dependencies 
 - ├── taskb_siamese.h5 # Full Siamese model (architecture + weights)
 - ├── taskb_siamese_embedding.h5 # Embedding model (used for evaluation)
 - ├── taskb-get_threshold_with_random_pairs.ipynb # Threshold calculation notebook
@@ -30,12 +31,12 @@ This repository contains code and pretrained models for **Task B** of **ComSys H
 
 | Metric     | Value     |
 |------------|-----------|
-| Accuracy   | `XX.XX%`  |
-| Precision  | `XX.XX%`  |
-| Recall     | `XX.XX%`  |
-| F1-Score   | `XX.XX%`  |
+| Accuracy   | `0.7792`  |
+| Precision  | `1.0000`  |
+| Recall     | `0.7792`  |
+| F1-Score   | `0.8759`  |
 
-> _Automatically computed by `test.py` 
+> _Automatically computed by `test.py` on sampled dataset for saving time
 
 ---
 
@@ -75,21 +76,19 @@ taskb_siamese_embedding.h5 – Embedding head only (used for computing distances
 layers_weights.txt – All learned layer weights (extracted for inspection)
 
 📦 Requirements
-Install dependencies with:
 
-bash
-Copy
-Edit
-pip install -r requirements.txt
-requirements.txt includes:
-nginx
-Copy
-Edit
-tensorflow
-opencv-python
-numpy
-scikit-learn
-tqdm
+To install all required Python dependencies, run:
+
+    pip install -r requirements.txt
+
+The requirements.txt includes:
+
+- tensorflow          → for model inference
+- opencv-python       → for image loading and preprocessing
+- numpy               → for numerical operations
+- scikit-learn        → for evaluation metrics (accuracy, precision, etc.)
+- tqdm                → for progress bars
+
 🧠 How Threshold Was Found
 Using taskb-get_threshold_with_random_pairs.ipynb:
 
