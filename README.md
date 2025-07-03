@@ -146,61 +146,69 @@ def build_siamese_model(input_shape):
 - │ └── distorted1.jpg
 ...
 
-### 🚀 Run the Script:
+## 🚀 Run the Script
+
+To evaluate the trained model on a custom dataset:
 
 ```bash
 python test.py
-#change data path in the code as requred
-This will:
+```
 
-Generate both matching and non-matching image pairs
+> 📌 **Important:** Open `test.py` and change the data path to your custom test folder (same structure as training/validation).  
+> The script will:
+> - Generate both matching and non-matching image pairs  
+> - Compute **Accuracy, Precision, Recall, F1-score**  
+> - Display results in the terminal  
 
-Compute: Accuracy, Precision, Recall, F1
+---
 
-Display results in the terminal
+## 💾 Pretrained Model Weights
 
-💾 Pretrained Model Weights
-taskb_siamese.h5 – Full Siamese network
+These are included in the repository:
 
-taskb_siamese_embedding.h5 – Embedding head only (used for computing distances)
+- `taskb_siamese.h5` — Full Siamese network  
+- `taskb_siamese_embedding.h5` — Embedding head only (used to compute image distances)  
+- `layers_weights.txt` — All learned layer weights (extracted for inspection)
 
-layers_weights.txt – All learned layer weights (extracted for inspection)
+---
 
-📦 Requirements
+## 📦 Requirements
 
 To install all required Python dependencies, run:
 
-    pip install -r requirements.txt
+```bash
+pip install -r requirements.txt
+```
 
-The requirements.txt includes:
+The `requirements.txt` includes:
 
-- tensorflow          → for model inference
-- opencv-python       → for image loading and preprocessing
-- numpy               → for numerical operations
-- scikit-learn        → for evaluation metrics (accuracy, precision, etc.)
-- tqdm                → for progress bars
+- `tensorflow` → for model inference  
+- `opencv-python` → for image loading and preprocessing  
+- `numpy` → for numerical operations  
+- `scikit-learn` → for evaluation metrics  
+- `tqdm` → for progress bars
 
-🧠 How Threshold Was Found
-Using taskb-get_threshold_with_random_pairs.ipynb:
+---
 
-Random matching and non-matching pairs were generated
+## 🧠 How the Threshold Was Selected
 
-Distances were computed using the embedding model
+The notebook `taskb-get_threshold_with_random_pairs.ipynb` was used to:
 
-Optimal threshold was selected using the best F1 score and also testing all thresholds between 50-100
+- Generate random matching and non-matching image pairs  
+- Compute distances using the pretrained embedding model  
+- Evaluate thresholds from 50 to 100  
+- Select the **optimal threshold** based on **F1 score**
 
-Final threshold selected: 82
+✅ **Final threshold selected: 82**
 
-🤝 Contributors
-Prakshay Saini
+---
 
-B.Tech CSE, IIIT Guwahati
+## 🤝 Contributors
 
+**Prakshay Saini**  
+B.Tech CSE, IIIT Guwahati  
 prakshay.saini23b@iiitg.ac.in
 
-Rishab Jain
-
-B.Tech CSE, IIIT Guwahati
-
+**Rishab Jain**  
+B.Tech CSE, IIIT Guwahati  
 rishab.jain23b@iiitg.ac.in
-
