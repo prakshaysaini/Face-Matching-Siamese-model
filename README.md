@@ -27,6 +27,15 @@ This repository contains code and pretrained models for **Task B** of **ComSys H
 
 ---
 
+## 🎯 Evaluation Metrics (on train data)
+
+| Metric     | Value     |
+|------------|-----------|
+| Accuracy   | `0.8212`  |
+| Precision  | `1.0000`  |
+| Recall     | `0.8212`  |
+| F1-Score   | `0.9018`  |
+
 ## 🎯 Evaluation Metrics (on validation)
 
 | Metric     | Value     |
