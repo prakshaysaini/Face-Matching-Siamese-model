@@ -16,13 +16,21 @@ python test.py
 - Make sure the folder structure matches the training/validation data format:
 
 - The script will:
-- 1.Load the pretrained embedding model
-- 2.Generate all possible image pairs (both matching and non-matching)
-- 3.Calculate the following evaluation metrics:
-- ✅ Accuracy
-- ✅ Precision
-- ✅ Recall
-- ✅ F1 Score
+
+1.Load the pretrained embedding model
+
+2.Generate all possible image pairs (both matching and non-matching)
+
+3.Calculate the following evaluation metrics:
+  
+   ✅ Accuracy
+
+   ✅ Precision
+
+   ✅ Recall
+
+   ✅ F1 Score
+   
 Evaluation results are printed to the console and optionally saved to .csv  file.
 
 ## 🧠 Model Architecture
