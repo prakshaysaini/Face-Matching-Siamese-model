@@ -2,6 +2,77 @@
 
 This repository contains code and pretrained models for **Task B** of **ComSys Hackathon 5** — verifying identity from distorted face images using a **Siamese embedding model**.
 
+## ▶️ Running the Test Script
+To evaluate the model on a custom test dataset, use:
+
+python test.py
+⚙️ Instructions:
+Open the test.py file.
+
+Update the data path inside the script to point to your test folder.
+
+Make sure the folder structure matches the training/validation data format:
+
+The script will:
+Load the pretrained embedding model
+Generate all possible image pairs (both matching and non-matching)
+Calculate the following evaluation metrics:
+✅ Accuracy
+✅ Precision
+✅ Recall
+✅ F1 Score
+Evaluation results are printed to the console and optionally saved to .csv  file.
+
+## 🧠 Model Architecture
+
+This project uses a **Siamese Neural Network** to learn visual similarity between images. The architecture is composed of:
+
+---
+
+### 🔹 1. Embedding Model
+
+A lightweight CNN that maps input images to 64-dimensional embeddings:
+
+```python
+def build_embedding_model(input_shape):
+    model = Sequential([
+        Conv2D(64, (3, 3), activation='relu', input_shape=input_shape),
+        MaxPooling2D(),
+        Conv2D(128, (3, 3), activation='relu'),
+        MaxPooling2D(),
+        Flatten(),
+        Dense(128, activation='relu'),
+        Dense(64)  # Final embedding vector
+    ])
+    return model
+```
+
+### 🔹 2. Siamese Model
+
+This model takes two inputs, passes them through the same embedding model, then compares them using L1 (absolute difference) followed by a sigmoid layer to predict similarity.
+
+```python
+def build_siamese_model(input_shape):
+    input_a = Input(shape=input_shape)
+    input_b = Input(shape=input_shape)
+
+    base_model = build_embedding_model(input_shape)
+
+    emb_a = base_model(input_a)
+    emb_b = base_model(input_b)
+
+    L1_distance = Lambda(lambda tensors: tf.abs(tensors[0] - tensors[1]))([emb_a, emb_b])
+    output = Dense(1, activation="sigmoid")(L1_distance)
+
+    model = Model(inputs=[input_a, input_b], outputs=output)
+    model.compile(loss="binary_crossentropy", optimizer=Adam(1e-3), metrics=["accuracy"])
+    return model, base_model
+```
+
+
+
+
+
 ---
 
 ## 📁 Project Structure ``` 
@@ -68,7 +139,8 @@ This repository contains code and pretrained models for **Task B** of **ComSys H
 ### 🚀 Run the Script:
 
 ```bash
-python test.py "/data_path"
+python test.py
+#change data path in the code as requred
 This will:
 
 Generate both matching and non-matching image pairs
