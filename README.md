@@ -6,14 +6,14 @@ This repository contains code and pretrained models for **Task B** of **ComSys H
 To evaluate the model on a custom test dataset, use:
 
 python test.py
-⚙️ Instructions:
-Open the test.py file.
+- ⚙️ Instructions:
+- Open the test.py file.
 
-Update the data path inside the script to point to your test folder.
+- Update the data path inside the script to point to your test folder.
 
-Make sure the folder structure matches the training/validation data format:
+- Make sure the folder structure matches the training/validation data format:
 
-The script will:
+- The script will:
 - 1.Load the pretrained embedding model
 - 2.Generate all possible image pairs (both matching and non-matching)
 - 3.Calculate the following evaluation metrics:
