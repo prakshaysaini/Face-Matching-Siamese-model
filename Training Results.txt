@@ -1,0 +1,12 @@
+Evaluation Metrics (ON TRAINING)
+-> Accuracy : 0.8212
+-> Precision: 1.0000
+-> Recall   : 0.8212
+-> F1 Score : 0.9018
+
+
+Evaluation Metrics (ON VALIDATION)
+-> Accuracy : 0.7792
+-> Precision: 1.0000
+-> Recall   : 0.7792
+-> F1 Score : 0.8759
