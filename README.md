@@ -6,7 +6,9 @@ This repository contains code and pretrained models for **Task B** of **ComSys H
 To evaluate the model on a custom test dataset, use:
 
 python test.py
-- ⚙️ Instructions:
+
+⚙️ Instructions:
+
 - Open the test.py file.
 
 - Update the data path inside the script to point to your test folder.
