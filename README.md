@@ -1,4 +1,4 @@
-#  Face Verification with Distorted Images
+#  Face Matching (Multi-Class Recognition with Distorted Inputs)
 
 This repository contains code and pretrained models for **Task B** of **ComSys Hackathon 5** — verifying identity from distorted face images using a **Siamese embedding model**.
 
