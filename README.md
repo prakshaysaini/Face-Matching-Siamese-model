@@ -30,12 +30,12 @@ This repository contains code and pretrained models for **Task B** of **ComSys H
 
 | Metric     | Value     |
 |------------|-----------|
-| Accuracy   | `XX.XX%`  |
-| Precision  | `XX.XX%`  |
-| Recall     | `XX.XX%`  |
-| F1-Score   | `XX.XX%`  |
+| Accuracy   | `0.7792`  |
+| Precision  | `1.0000`  |
+| Recall     | `0.7792`  |
+| F1-Score   | `0.8759`  |
 
-> _Automatically computed by `test.py` 
+> _Automatically computed by `test.py` on sampled dataset for saving time
 
 ---
 
