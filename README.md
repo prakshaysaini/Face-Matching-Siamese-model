@@ -7,6 +7,7 @@ This repository contains code and pretrained models for **Task B** of **ComSys H
 ## 📁 Project Structure ``` 
 - ├── distances_output.xlsx # Distances and results from threshold evaluation
 - ├── layers_weights.txt # Extracted layer weights from model (text format)
+- ├── requirements.txt # All the required dependencies 
 - ├── taskb_siamese.h5 # Full Siamese model (architecture + weights)
 - ├── taskb_siamese_embedding.h5 # Embedding model (used for evaluation)
 - ├── taskb-get_threshold_with_random_pairs.ipynb # Threshold calculation notebook
